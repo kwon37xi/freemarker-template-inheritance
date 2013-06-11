@@ -1,0 +1,13 @@
+apply plugin: 'war'
+
+webAppDirName = 'web'
+
+ext {
+    springframeworkVersion = '3.2.3.RELEASE'
+}
+dependencies {
+    compile project(':ftl-inheritance')
+    compile "org.springframework:spring-webmvc:${springframeworkVersion}"
+    compile "org.springframework:spring-context-support:${springframeworkVersion}"
+    providedCompile 'javax.servlet:servlet-api:2.5'
+}

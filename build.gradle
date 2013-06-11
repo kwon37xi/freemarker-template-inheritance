@@ -1,0 +1,15 @@
+subprojects {
+    apply plugin: 'java'
+
+    ext {
+        javaVersion = '1.6'
+    }
+
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+    repositories {
+        mavenCentral()
+    }
+}

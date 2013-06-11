@@ -1,0 +1,4 @@
+
+dependencies {
+    compile 'org.freemarker:freemarker:2.3.19'
+}
