@@ -1,0 +1,2 @@
+# Freemarker Template Inheritance
+
