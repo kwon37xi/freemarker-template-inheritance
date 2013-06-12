@@ -1,4 +1,6 @@
 
 dependencies {
     compile 'org.freemarker:freemarker:2.3.19'
+
+    testCompile 'junit:junit:4.11'
 }

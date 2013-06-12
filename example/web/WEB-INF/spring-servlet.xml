@@ -12,6 +12,11 @@
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="/WEB-INF/ftls/"/>
         <property name="defaultEncoding" value="utf-8" />
+        <property name="freemarkerVariables">
+                <map>
+                    <entry key="extends"><bean class="kr.pe.kwonnam.freemarker.inheritance.ExtendsDirective" /></entry>
+                </map>
+        </property>
     </bean>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
