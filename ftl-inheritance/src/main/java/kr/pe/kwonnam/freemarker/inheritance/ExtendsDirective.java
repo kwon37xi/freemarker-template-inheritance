@@ -20,6 +20,5 @@ public class ExtendsDirective implements TemplateDirectiveModel {
         Template parentTemplate = env.getTemplateForInclusion(name, null, true);
 
         parentTemplate.process(env.getDataModel(), env.getOut());
-
     }
 }
