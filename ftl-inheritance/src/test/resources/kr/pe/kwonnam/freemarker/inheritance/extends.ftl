@@ -1,0 +1,1 @@
+{<@layout.extends name="layouts/base.ftl" />}
