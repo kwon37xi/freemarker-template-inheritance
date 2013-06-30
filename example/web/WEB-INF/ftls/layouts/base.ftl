@@ -1,11 +1,22 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Base Layout</title>
+        <@layout.block name="head">
+            <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        </@layout.block>
     </head>
     <body>
-        <h1>Base Layout</h1>
+        <@layout.block name="header">
+            <h1>Base Layout</h1>
+        </@layout.block>
         <div class="base">
-            contents
+            <@layout.block name="contents">
+                <h2>Contents will be here</h2>
+            </@layout.block>
         </div>
+        <@layout.block name="footer">
+            <div>Footer base</div>
+        </@layout.block>
     </body>
 </html>
