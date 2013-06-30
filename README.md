@@ -5,21 +5,21 @@ You don't need to use any layout framework like Sitemesh or Tiles.
 
 ## Spring Framework Settings
 ```xml
-    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath" value="/WEB-INF/ftls/"/>
-        <property name="defaultEncoding" value="utf-8" />
-        <property name="freemarkerVariables">
-                <map>
-                    <entry key="layout">
-                        <util:map>
-                            <entry key="extends"><bean class="kr.pe.kwonnam.freemarker.inheritance.ExtendsDirective"/></entry>
-                            <entry key="block"><bean class="kr.pe.kwonnam.freemarker.inheritance.BlockDirective"/></entry>
-                            <entry key="put"><bean class="kr.pe.kwonnam.freemarker.inheritance.PutDirective"/></entry>
-                        </util:map>
-                    </entry>
-                </map>
-        </property>
-    </bean>
+<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+    <property name="templateLoaderPath" value="/WEB-INF/ftls/"/>
+    <property name="defaultEncoding" value="utf-8" />
+    <property name="freemarkerVariables">
+        <map>
+            <entry key="layout">
+                <util:map>
+                    <entry key="extends"><bean class="kr.pe.kwonnam.freemarker.inheritance.ExtendsDirective"/></entry>
+                    <entry key="block"><bean class="kr.pe.kwonnam.freemarker.inheritance.BlockDirective"/></entry>
+                    <entry key="put"><bean class="kr.pe.kwonnam.freemarker.inheritance.PutDirective"/></entry>
+                </util:map>
+            </entry>
+        </map>
+    </property>
+</bean>
 ```
 
 ## Usage
