@@ -4,9 +4,10 @@ import freemarker.core.Environment;
 import freemarker.template.*;
 
 import java.io.IOException;
-import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Map;
+
+import static kr.pe.kwonnam.freemarker.inheritance.BlockDirectiveUtils.*;
 
 /**
  * User: KwonNam Son(kwon37xi@gmail.com}
@@ -14,11 +15,14 @@ import java.util.Map;
  * Time: 오후 10:16
  */
 public class BlockDirective implements TemplateDirectiveModel {
+
+    public static final String BLOCK_NAME_PARAMETER = "name";
+
     @Override
     public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body) throws TemplateException, IOException {
-        String blockName = getBlockName(env, params);
+        String blockName = getBlockName(env, params, BLOCK_NAME_PARAMETER);
         PutType putType = getPutType(env, blockName);
-        String bodyResult = getBodyResult(env, body);
+        String bodyResult = getBodyResult(body);
 
         Writer out = env.getOut();
 
@@ -27,17 +31,8 @@ public class BlockDirective implements TemplateDirectiveModel {
         putType.write(out, bodyResult, putContents);
     }
 
-    private String getBlockName(Environment env, Map params) throws TemplateException {
-        SimpleScalar blockNameScalar = (SimpleScalar)params.get("name");
-        if (blockNameScalar == null) {
-            throw new TemplateException("Block directive must have 'name' attribute.", env);
-        }
-        String blockName = blockNameScalar.getAsString();
-        return blockName;
-    }
-
     private PutType getPutType(Environment env, String blockName) throws TemplateException {
-        SimpleScalar putTypeScalar = (SimpleScalar) env.getVariable(PutDirective.PUT_DATA_PREFIX + blockName + ".type");
+        SimpleScalar putTypeScalar = (SimpleScalar) env.getVariable(getBlockTypeVarName(blockName));
         if (putTypeScalar == null) {
             return PutType.APPEND;
         }
@@ -45,19 +40,8 @@ public class BlockDirective implements TemplateDirectiveModel {
         return PutType.valueOf(putTypeScalar.getAsString());
     }
 
-    private String getBodyResult(Environment env, TemplateDirectiveBody body) throws IOException, TemplateException {
-        if (body == null) {
-            return "";
-        }
-
-        StringWriter writer = new StringWriter();
-        body.render(writer);
-
-        return writer.toString();
-    }
-
     private String getPutContents(Environment env, String blockName) throws TemplateModelException {
-        SimpleScalar putContentsModel = (SimpleScalar) env.getVariable(PutDirective.PUT_DATA_PREFIX + blockName + ".contents");
+        SimpleScalar putContentsModel = (SimpleScalar) env.getVariable(getBlockContentsVarName(blockName));
         String putContents = "";
         if (putContentsModel != null) {
             putContents = putContentsModel.getAsString();
