@@ -1,0 +1,1 @@
+{[<@layout.block name="first">FirstBlock-</@layout.block>][<@layout.block name="second">SecondBlock-</@layout.block>][<@layout.block name="third">ThirdBlock-</@layout.block>][<@layout.block name="fourth">FourthBlock-</@layout.block>][<@layout.block name="fifth">FifthBlock-</@layout.block>]}

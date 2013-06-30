@@ -39,6 +39,8 @@ public class AbstractDirectiveTest {
         Map<String, TemplateDirectiveModel> layoutDirectives = new HashMap<String, TemplateDirectiveModel>();
 
         layoutDirectives.put("extends", new ExtendsDirective());
+        layoutDirectives.put("put", new PutDirective());
+        layoutDirectives.put("block", new BlockDirective());
 
         try {
             configuration.setSharedVariable("layout", layoutDirectives);

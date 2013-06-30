@@ -1,0 +1,1 @@
+[<@layout.block name="appendTest">BlockContents - </@layout.block>]

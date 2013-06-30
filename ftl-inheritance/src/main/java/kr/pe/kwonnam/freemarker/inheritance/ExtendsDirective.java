@@ -4,6 +4,7 @@ import freemarker.core.Environment;
 import freemarker.template.*;
 
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.Map;
 
 /**
@@ -15,10 +16,22 @@ public class ExtendsDirective implements TemplateDirectiveModel {
 
     @Override
     public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body) throws TemplateException, IOException {
-        String name =  ((SimpleScalar)params.get("name")).getAsString();
+        String layoutName =  ((SimpleScalar)params.get("name")).getAsString();
 
-        Template parentTemplate = env.getTemplateForInclusion(name, null, true);
+        processBody(body);
+        processLayout(env, layoutName);
+    }
 
-        parentTemplate.process(env.getDataModel(), env.getOut());
+    private void processBody(TemplateDirectiveBody body) throws TemplateException, IOException {
+        if (body == null) {
+            return;
+        }
+
+        StringWriter fakeOut = new StringWriter();
+        body.render(fakeOut);
+    }
+
+    private void processLayout(Environment env, String layoutName) throws IOException, TemplateException {
+        env.include(layoutName, null, true);
     }
 }
