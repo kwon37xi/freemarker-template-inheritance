@@ -5,6 +5,14 @@ With these template inheritance directives you can manage template layouts..
 You don't need to use layout frameworks like [Sitemesh](http://wiki.sitemesh.org/display/sitemesh/Home) or [Apache Tiles](http://tiles.apache.org/).
 
 ## Spring Framework Settings
+
+Just copy the following four class files into your project.
+
+1. ExtendsDirective.java
+2. BlockDirective.java
+3. PutDirective.java
+4. BlockDirectiveUtils.java
+
 ```xml
 <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
     <property name="templateLoaderPath" value="/WEB-INF/ftls/"/>
