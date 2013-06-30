@@ -1,7 +1,8 @@
 # Freemarker Template Inheritance
 
-Layout management can be done with this Freemarker template inheritance directives.
-You don't need to use any layout framework like Sitemesh or Tiles.
+With these template inheritance directives you can manage template layouts..
+
+You don't need to use layout frameworks like [Sitemesh](http://wiki.sitemesh.org/display/sitemesh/Home) or [Apache Tiles](http://tiles.apache.org/).
 
 ## Spring Framework Settings
 ```xml
@@ -82,3 +83,8 @@ Look at `index.ftl` and `/layout/base.ftl`
 
 1. In `<@layout.extends name="">..`, `name` should be absolute path.
 2. The content which wraps `<@layout.extends ..>` is shown. So you must not put any content before/after `<@layout.extends ..>`.
+
+## References
+
+1. [Jade](http://jade-lang.com/) template inheritance.
+2. [Fwd: template inheritance for freemarker](http://freemarker.624813.n4.nabble.com/Fwd-template-inheritance-for-freemarker-td2296583.html)
