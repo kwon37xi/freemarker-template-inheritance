@@ -2,7 +2,7 @@
     <@layout.put block="head">
         <script src="//ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
     </@layout.put>
-    <@layout.put block="header">
+    <@layout.put block="header" type="prepend">
         <h2>Index Page</h2>
     </@layout.put>
     <@layout.put block="contents">

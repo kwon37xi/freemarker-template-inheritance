@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Base Layout</title>
+        <meta charset="utf-8">
         <@layout.block name="head">
             <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         </@layout.block>
@@ -16,7 +17,7 @@
             </@layout.block>
         </div>
         <@layout.block name="footer">
-            <div>Footer base</div>
+            <div>Footer base must not be shown</div>
         </@layout.block>
     </body>
 </html>
