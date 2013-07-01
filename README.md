@@ -8,11 +8,11 @@ You don't need to use layout frameworks like [Sitemesh](http://wiki.sitemesh.org
 
 Just copy the following five class files into your project.
 
-1. ExtendsDirective.java
-1. BlockDirective.java
-1. PutDirective.java
-1. BlockDirectiveUtils.java
-1. PutType.java
+1. [ExtendsDirective.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/ExtendsDirective.java)
+1. [BlockDirective.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/BlockDirective.java)
+1. [PutDirective.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/PutDirective.java)
+1. [BlockDirectiveUtils.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/BlockDirectiveUtils.java)
+1. [PutType.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/PutType.java)
 
 ```xml
 <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
