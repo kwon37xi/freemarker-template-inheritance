@@ -6,12 +6,13 @@ You don't need to use layout frameworks like [Sitemesh](http://wiki.sitemesh.org
 
 ## Spring Framework Settings
 
-Just copy the following four class files into your project.
+Just copy the following five class files into your project.
 
 1. ExtendsDirective.java
-2. BlockDirective.java
-3. PutDirective.java
-4. BlockDirectiveUtils.java
+1. BlockDirective.java
+1. PutDirective.java
+1. BlockDirectiveUtils.java
+1. PutType.java
 
 ```xml
 <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
@@ -80,8 +81,8 @@ Just copy the following four class files into your project.
 
 ### PutType
 1. APPEND : The put contents will be appended after block's contents. default.
-2. PREPEND : The put contents will be prepended before block's contents.
-3. REPLACE : The put contents will replace block's contents. The block's contents will be removed.
+1. PREPEND : The put contents will be prepended before block's contents.
+1. REPLACE : The put contents will replace block's contents. The block's contents will be removed.
 
 ### Example
 `example` module is web application layout example. Run the module and browse `http://localhost:8080/index`.
@@ -90,9 +91,9 @@ Look at `index.ftl` and `/layout/base.ftl`
 ## Known Problems
 
 1. In `<@layout.extends name="">..`, `name` should be absolute path.
-2. The content which wraps `<@layout.extends ..>` is shown. So you must not put any content before/after `<@layout.extends ..>`.
+1. The content which wraps `<@layout.extends ..>` is shown. So you must not put any content before/after `<@layout.extends ..>`.
 
 ## References
 
 1. [Jade](http://jade-lang.com/) template inheritance.
-2. [Fwd: template inheritance for freemarker](http://freemarker.624813.n4.nabble.com/Fwd-template-inheritance-for-freemarker-td2296583.html)
+1. [Fwd: template inheritance for freemarker](http://freemarker.624813.n4.nabble.com/Fwd-template-inheritance-for-freemarker-td2296583.html)
