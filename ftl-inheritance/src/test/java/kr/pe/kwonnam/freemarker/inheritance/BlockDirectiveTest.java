@@ -33,11 +33,4 @@ public class BlockDirectiveTest extends AbstractDirectiveTest {
         assertThat("Replace 방식 Block", result, is("{[PutContents]}"));
         System.out.println("block_replace : " + result);
     }
-
-    @Test
-    public void block_replace_ignore_when_put_gives_empty_contents() {
-        String result = processTemplate("block_replace_empty_put.ftl");
-        assertThat("Replace 방식 Block이지만 Put이 지정안돼 있을 경우", result, is("{[BlockContentsEmpty]}"));
-        System.out.println("block_replace_empty : " + result);
-    }
 }
