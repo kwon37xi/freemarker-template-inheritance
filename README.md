@@ -6,34 +6,27 @@ You don't need to use layout frameworks like [Sitemesh](http://wiki.sitemesh.org
 
 ## Spring Framework Settings
 
-Just copy the following five class files into your project.
-
+### Just copy the following five class files into your project.
 1. [ExtendsDirective.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/ExtendsDirective.java)
 1. [BlockDirective.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/BlockDirective.java)
 1. [PutDirective.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/PutDirective.java)
 1. [BlockDirectiveUtils.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/BlockDirectiveUtils.java)
 1. [PutType.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/PutType.java)
 
+### add freemarkerLayoutDirectives to freemarkerConfig
 ```xml
 <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
     <property name="templateLoaderPath" value="/WEB-INF/ftls/"/>
     <property name="defaultEncoding" value="utf-8" />
     <property name="freemarkerVariables">
         <map>
-            <entry key="layout">
-                <util:map>
-                    <entry key="extends"><bean class="kr.pe.kwonnam.freemarker.inheritance.ExtendsDirective"/></entry>
-                    <entry key="block"><bean class="kr.pe.kwonnam.freemarker.inheritance.BlockDirective"/></entry>
-                    <entry key="put"><bean class="kr.pe.kwonnam.freemarker.inheritance.PutDirective"/></entry>
-                </util:map>
-            </entry>
+            <entry key="layout" value-ref="freemarkerLayoutDirectives" />
         </map>
     </property>
 </bean>
 ```
 
 ## Usage
-
 ### base.ftl : layout
 ```html
 <!DOCTYPE html>
@@ -89,11 +82,9 @@ Just copy the following five class files into your project.
 Look at `index.ftl` and `/layout/base.ftl`
 
 ## Known Problems
-
 1. In `<@layout.extends name="">..`, `name` should be absolute path.
 1. The content which wraps `<@layout.extends ..>` is shown. So you must not put any content before/after `<@layout.extends ..>`.
 
 ## References
-
 1. [Jade](http://jade-lang.com/) template inheritance.
 1. [Fwd: template inheritance for freemarker](http://freemarker.624813.n4.nabble.com/Fwd-template-inheritance-for-freemarker-td2296583.html)
