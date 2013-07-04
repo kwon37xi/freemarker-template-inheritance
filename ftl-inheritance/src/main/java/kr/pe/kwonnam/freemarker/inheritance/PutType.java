@@ -25,7 +25,11 @@ public enum PutType {
     REPLACE {
         @Override
         public void write(Writer out, String bodyResult, String putContents) throws IOException {
-            out.write(putContents);
+            if (putContents != null && !putContents.isEmpty()) {
+                out.write(putContents);
+            } else {
+                out.write(bodyResult);
+            }
         }
     };
 

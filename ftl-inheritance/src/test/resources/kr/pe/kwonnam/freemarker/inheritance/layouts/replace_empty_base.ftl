@@ -1,0 +1,1 @@
+[<@layout.block name="emptyTest">BlockContentsEmpty</@layout.block>]
