@@ -15,6 +15,8 @@ You don't need to use layout frameworks like [Sitemesh](http://wiki.sitemesh.org
 
 ### add freemarkerLayoutDirectives to freemarkerConfig
 ```xml
+<import resource="classpath:/kr/pe/kwonnam/freemarker/inheritance/freemarker-layout-directives.xml" />
+
 <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
     <property name="templateLoaderPath" value="/WEB-INF/ftls/"/>
     <property name="defaultEncoding" value="utf-8" />
