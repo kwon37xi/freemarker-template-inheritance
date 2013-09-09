@@ -4,6 +4,8 @@ With these template inheritance directives you can manage template layouts..
 
 You don't need to use layout frameworks like [Sitemesh](http://wiki.sitemesh.org/display/sitemesh/Home) or [Apache Tiles](http://tiles.apache.org/).
 
+If you use JSP, refer to [jsp-template-inheritance](https://github.com/kwon37xi/jsp-template-inheritance).
+
 ## Spring Framework Settings
 
 ### Just copy the following five class files into your project.
