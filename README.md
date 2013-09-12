@@ -98,8 +98,8 @@ dependencies {
 1. REPLACE : The put contents will replace block's contents. The block's contents will be removed.
 
 ### Example
-`example` module is web application layout example. Run the module and browse `http://localhost:8080/index`.
-Look at `index.ftl` and `/layout/base.ftl`
+`example` module is a web application layout example. Run the module and browse <http://localhost:8080/index>.
+Refer to `index.ftl` and `/layout/base.ftl`
 
 ## Known Problems
 1. In `<@layout.extends name="">..`, `name` should be absolute path.
