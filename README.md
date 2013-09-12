@@ -10,6 +10,25 @@ If you use JSP, refer to [jsp-template-inheritance](https://github.com/kwon37xi/
 
 * [Maven Repository settings.](https://github.com/kwon37xi/m2repos)
 
+### Gradle Settings
+
+```groovy
+dependencies {
+    compile 'kr.pe.kwonnam.freemarker:ftl-inheritance:0.3'
+}
+```
+
+### Maven Settings
+
+```xml
+<dependency>
+    <groupId>kr.pe.kwonnam.freemarker</groupId>
+    <artifactId>ftl-inheritance</artifactId>
+    <version>0.3</version>
+    <scope>compile</scope>
+</dependency>
+```
+
 ## Spring Framework Settings
 
 ### add freemarkerLayoutDirectives to freemarkerConfig
