@@ -5,8 +5,15 @@ webAppDirName = 'web'
 ext {
     springframeworkVersion = '3.2.3.RELEASE'
 }
+repositories {
+
+    maven {
+        url 'https://raw.github.com/kwon37xi/m2repos/master/releases'
+    }
+}
+
 dependencies {
-    compile project(':ftl-inheritance')
+    compile 'kr.pe.kwonnam.freemarker:ftl-inheritance:0.3'
     compile "org.springframework:spring-webmvc:${springframeworkVersion}"
     compile "org.springframework:spring-context-support:${springframeworkVersion}"
     providedCompile 'javax.servlet:servlet-api:2.5'

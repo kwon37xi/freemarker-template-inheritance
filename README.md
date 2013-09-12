@@ -6,14 +6,11 @@ You don't need to use layout frameworks like [Sitemesh](http://wiki.sitemesh.org
 
 If you use JSP, refer to [jsp-template-inheritance](https://github.com/kwon37xi/jsp-template-inheritance).
 
-## Spring Framework Settings
+## Settings
 
-### Just copy the following five class files into your project.
-1. [ExtendsDirective.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/ExtendsDirective.java)
-1. [BlockDirective.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/BlockDirective.java)
-1. [PutDirective.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/PutDirective.java)
-1. [BlockDirectiveUtils.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/BlockDirectiveUtils.java)
-1. [PutType.java](https://github.com/kwon37xi/freemarker-template-inheritance/blob/master/ftl-inheritance/src/main/java/kr/pe/kwonnam/freemarker/inheritance/PutType.java)
+* [Maven Repository settings.](https://github.com/kwon37xi/m2repos)
+
+## Spring Framework Settings
 
 ### add freemarkerLayoutDirectives to freemarkerConfig
 ```xml
