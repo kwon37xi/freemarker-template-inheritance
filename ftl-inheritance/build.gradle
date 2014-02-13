@@ -12,7 +12,7 @@ dependencies {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "file://localost/tmp/m2repos/releases")
+            repository(url: "file://localhost/tmp/m2repos/releases")
             pom.artifactId = 'ftl-inheritance'
             pom.project {
                 licenses {
