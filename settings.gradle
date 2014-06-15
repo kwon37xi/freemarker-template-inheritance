@@ -1,1 +1,2 @@
-include 'ftl-inheritance', 'example'
+rootProject.name = 'freemarker-template-inheritance-root'
+include 'freemarker-template-inheritance', 'example'

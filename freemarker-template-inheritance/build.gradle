@@ -1,0 +1,71 @@
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+dependencies {
+    compile 'org.freemarker:freemarker:2.3.19'
+
+    testCompile 'junit:junit:4.11'
+}
+
+// from http://central.sonatype.org/pages/gradle.html
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name "${project.name}"
+                packaging 'jar'
+                description 'Freemarker template inheritance.'
+                url 'https://github.com/kwon37xi/freemarker-template-inheritance'
+
+                scm {
+                    connection 'scm:git:https://github.com/kwon37xi/freemarker-template-inheritance.git'
+                    url 'https://github.com/kwon37xi/freemarker-template-inheritance'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'kwon37xi'
+                        name 'KwonNam Son'
+                        email 'kwon37xi@gmail.com'
+                    }
+                }
+            }
+        }
+    }
+}

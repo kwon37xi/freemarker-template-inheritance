@@ -6,15 +6,12 @@ You don't need to use layout frameworks like [Sitemesh](http://wiki.sitemesh.org
 
 If you use JSP, refer to [jsp-template-inheritance](https://github.com/kwon37xi/jsp-template-inheritance).
 
-## Settings
-
-* [Maven Repository settings.](https://github.com/kwon37xi/m2repos)
+From 0.4.RELEASE, you can downlod this library from the maven central repository.
 
 ### Gradle Settings
-
 ```groovy
 dependencies {
-    compile 'kr.pe.kwonnam.freemarker:ftl-inheritance:0.3'
+    compile 'kr.pe.kwonnam.freemarker:freemarker-template-inheritance:0.4.RELEASE'
 }
 ```
 
@@ -23,8 +20,8 @@ dependencies {
 ```xml
 <dependency>
     <groupId>kr.pe.kwonnam.freemarker</groupId>
-    <artifactId>ftl-inheritance</artifactId>
-    <version>0.3</version>
+    <artifactId>freemarker-template-inheritance</artifactId>
+    <version>0.4.RELEASE</version>
     <scope>compile</scope>
 </dependency>
 ```

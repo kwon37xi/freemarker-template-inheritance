@@ -3,7 +3,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
     </@layout.put>
     <@layout.put block="header" type="prepend">
-        <h2>Index Page</h2>
+        <h2>Prepended Index Page</h2>
     </@layout.put>
     <@layout.put block="contents">
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
