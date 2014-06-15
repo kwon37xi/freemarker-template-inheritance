@@ -8,14 +8,14 @@ If you use JSP, refer to [jsp-template-inheritance](https://github.com/kwon37xi/
 
 From 0.4.RELEASE, you can downlod this library from the maven central repository.
 
-### Gradle Settings
+### Gradle dependencies
 ```groovy
 dependencies {
     compile 'kr.pe.kwonnam.freemarker:freemarker-template-inheritance:0.4.RELEASE'
 }
 ```
 
-### Maven Settings
+### Maven dependencies
 
 ```xml
 <dependency>

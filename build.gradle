@@ -10,7 +10,7 @@ subprojects {
     [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
     group = 'kr.pe.kwonnam.freemarker'
-    version = '0.4.RELEASE'
+    version = '0.5-SNAPSHOT'
 
     repositories {
         mavenCentral()
