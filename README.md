@@ -28,7 +28,43 @@ dependencies {
 
 ## Spring Framework Settings
 
-### add freemarkerLayoutDirectives to freemarkerConfig
+### Java Config - refer to ```FreemarkerTemplateinheritanceConfig.java```
+```java
+@Bean
+public Map<String, TemplateModel> freemarkerLayoutDirectives() {
+    Map<String, TemplateModel> freemarkerLayoutDirectives = new HashMap<String, TemplateModel>();
+    freemarkerLayoutDirectives.put("extends", new ExtendsDirective());
+    freemarkerLayoutDirectives.put("block", new BlockDirective());
+    freemarkerLayoutDirectives.put("put", new PutDirective());
+
+    return freemarkerLayoutDirectives;
+}
+
+@Bean
+public FreeMarkerConfigurer freemarkerConfig() {
+    FreeMarkerConfigurer freemarkerConfig = new FreeMarkerConfigurer();
+    freemarkerConfig.setTemplateLoaderPath("/WEB-INF/ftls/");
+    freemarkerConfig.setDefaultEncoding("UTF-8");
+
+    Map<String, Object> freemarkerVariables = new HashMap<String, Object>();
+    freemarkerVariables.put("layout", freemarkerLayoutDirectives());
+
+    freemarkerConfig.setFreemarkerVariables(freemarkerVariables);
+    return freemarkerConfig;
+}
+
+@Bean
+public ViewResolver viewResolver() {
+    FreeMarkerViewResolver viewResolver = new FreeMarkerViewResolver();
+    viewResolver.setCache(false);
+    viewResolver.setPrefix("");
+    viewResolver.setSuffix(".ftl");
+    viewResolver.setContentType("text/html; charset=utf-8");
+    return viewResolver;
+}
+```
+
+### XML Config - refer to ```spring-servlet.xml```
 ```xml
 <import resource="classpath:/kr/pe/kwonnam/freemarker/inheritance/freemarker-layout-directives.xml" />
 
