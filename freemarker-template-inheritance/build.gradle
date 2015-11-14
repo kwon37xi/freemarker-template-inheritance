@@ -23,54 +23,51 @@ artifacts {
     archives javadocJar, sourcesJar
 }
 
-signing {
-    sign configurations.archives
-}
 
-if (!project.hasProperty('ossrhUsername')) {
-    ext.ossrhUsername = 'nousername'
-}
+if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')) {
+    logger.info('Initializing signing and uploadArchives')
 
-if (!project.hasProperty('ossrhPassword')) {
-    ext.ossrhPassword = 'noPassword'
-}
+    signing {
+        sign configurations.archives
+    }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
+                repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
 
-            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
+                snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
 
-            pom.project {
-                name "${project.name}"
-                packaging 'jar'
-                description 'Freemarker template inheritance.'
-                url 'https://github.com/kwon37xi/freemarker-template-inheritance'
-
-                scm {
-                    connection 'scm:git:https://github.com/kwon37xi/freemarker-template-inheritance.git'
+                pom.project {
+                    name "${project.name}"
+                    packaging 'jar'
+                    description 'Freemarker template inheritance.'
                     url 'https://github.com/kwon37xi/freemarker-template-inheritance'
-                }
 
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    scm {
+                        connection 'scm:git:https://github.com/kwon37xi/freemarker-template-inheritance.git'
+                        url 'https://github.com/kwon37xi/freemarker-template-inheritance'
                     }
-                }
 
-                developers {
-                    developer {
-                        id 'kwon37xi'
-                        name 'KwonNam Son'
-                        email 'kwon37xi@gmail.com'
+                    licenses {
+                        license {
+                            name 'The Apache Software License, Version 2.0'
+                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id 'kwon37xi'
+                            name 'KwonNam Son'
+                            email 'kwon37xi@gmail.com'
+                        }
                     }
                 }
             }
