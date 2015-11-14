@@ -1,4 +1,5 @@
 # Freemarker Template Inheritance
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/kr.pe.kwonnam.freemarker/freemarker-template-inheritance/badge.svg)](https://maven-badges.herokuapp.com/maven-central/kr.pe.kwonnam.freemarker/freemarker-template-inheritance)
 
 With these template inheritance directives you can manage template layouts..
 
