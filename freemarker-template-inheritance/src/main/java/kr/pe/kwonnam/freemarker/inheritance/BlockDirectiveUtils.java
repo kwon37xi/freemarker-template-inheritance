@@ -25,12 +25,8 @@ public class BlockDirectiveUtils {
         return writer.toString();
     }
 
-    public static String getBlockContentsVarName(String blockName) {
-        return PutDirective.PUT_DATA_PREFIX + blockName + ".contents";
-    }
-
-    public static String getBlockTypeVarName(String blockName) {
-        return PutDirective.PUT_DATA_PREFIX + blockName + ".type";
+    public static String getBlockVarName(String blockName) {
+        return PutDirective.PUT_DATA_PREFIX + blockName;
     }
 
     public static String getBlockName(Environment env, Map params, String paramName) throws TemplateException {

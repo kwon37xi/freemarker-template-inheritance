@@ -17,8 +17,8 @@ public class ExtendsManyTimesTest extends AbstractDirectiveTest {
         String result = processTemplate("extends_many_times.ftl");
 
         assertThat("다차 상속", result, is("{[FirstBlock-FirstBlockChild1-FirstAppendBlockChild2]" +
-                "[SecondBlock-SecondBlockChildReplace]" +
-                "[ThirdBlock-ThirdBlockChildPrepend2-ThirdBlockChild1]" +
+                "[SecondBlockChildReplace]" +
+                "[ThirdBlockChildPrepend2-ThirdBlock-ThirdBlockChild1]" +
                 "[FourthBlock-FourthBlockChildAppend2]" +
                 "[FifthBlock-FifthBlockChild1]}"));
     }
