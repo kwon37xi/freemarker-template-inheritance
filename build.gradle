@@ -12,7 +12,7 @@ subprojects {
     [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
     group = 'io.github.matteosilv.freemarker'
-    version = '0.5-SNAPSHOT'
+    version = '0.6'
 
     repositories {
         mavenCentral()
