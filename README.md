@@ -20,9 +20,9 @@ dependencies {
 
 ```xml
 <dependency>
-    <groupId>kr.pe.kwonnam.freemarker</groupId>
+    <groupId>io.github.matteosilv</groupId>
     <artifactId>freemarker-template-inheritance</artifactId>
-    <version>0.4.RELEASE</version>
+    <version>0.6</version>
     <scope>compile</scope>
 </dependency>
 ```
