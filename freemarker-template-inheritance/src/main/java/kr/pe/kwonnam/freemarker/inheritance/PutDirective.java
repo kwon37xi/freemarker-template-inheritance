@@ -1,12 +1,22 @@
+/* 
+ * The original source file has been modified by Matteo Silvestri 
+ * <matteosilv@gmail.com> on date 2017-10-26
+ */
 package kr.pe.kwonnam.freemarker.inheritance;
 
-import freemarker.core.Environment;
-import freemarker.template.*;
+import static kr.pe.kwonnam.freemarker.inheritance.BlockDirectiveUtils.getBlockName;
+import static kr.pe.kwonnam.freemarker.inheritance.BlockDirectiveUtils.getBlockVarName;
+import static kr.pe.kwonnam.freemarker.inheritance.BlockDirectiveUtils.getBodyResult;
 
 import java.io.IOException;
 import java.util.Map;
 
-import static kr.pe.kwonnam.freemarker.inheritance.BlockDirectiveUtils.*;
+import freemarker.core.Environment;
+import freemarker.template.SimpleScalar;
+import freemarker.template.TemplateDirectiveBody;
+import freemarker.template.TemplateDirectiveModel;
+import freemarker.template.TemplateException;
+import freemarker.template.TemplateModel;
 
 /**
  * User: KwonNam Son(kwon37xi@gmail.com}
@@ -24,8 +34,15 @@ public class PutDirective implements TemplateDirectiveModel {
         PutType putType = getPutType(params);
         String bodyResult = getBodyResult(body);
 
-        env.setVariable(getBlockContentsVarName(blockName), new SimpleScalar(bodyResult));
-        env.setVariable(getBlockTypeVarName(blockName), new SimpleScalar(putType.name()));
+        Block block = new Block(blockName, putType, bodyResult);
+
+        String blockVarName = getBlockVarName(blockName);
+        BlockStack blockStack = (BlockStack) env.getVariable(blockVarName);
+        if (blockStack == null) {
+            blockStack = new BlockStack();
+            env.setVariable(blockVarName, blockStack);
+        }
+        blockStack.push(block);
     }
 
     private PutType getPutType(Map params) {

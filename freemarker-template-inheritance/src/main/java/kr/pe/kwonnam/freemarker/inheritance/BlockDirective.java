@@ -1,13 +1,22 @@
+/* 
+ * The original source file has been modified by Matteo Silvestri 
+ * <matteosilv@gmail.com> on date 2017-10-26
+ */
 package kr.pe.kwonnam.freemarker.inheritance;
 
-import freemarker.core.Environment;
-import freemarker.template.*;
+import static kr.pe.kwonnam.freemarker.inheritance.BlockDirectiveUtils.*;
 
 import java.io.IOException;
+import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Map;
 
-import static kr.pe.kwonnam.freemarker.inheritance.BlockDirectiveUtils.*;
+import freemarker.core.Environment;
+import freemarker.template.TemplateDirectiveBody;
+import freemarker.template.TemplateDirectiveModel;
+import freemarker.template.TemplateException;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * User: KwonNam Son(kwon37xi@gmail.com}
@@ -21,31 +30,30 @@ public class BlockDirective implements TemplateDirectiveModel {
     @Override
     public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body) throws TemplateException, IOException {
         String blockName = getBlockName(env, params, BLOCK_NAME_PARAMETER);
-        PutType putType = getPutType(env, blockName);
+        BlockStack blockStack = getBlockStack(env, blockName);
+        
         String bodyResult = getBodyResult(body);
 
+        while (!blockStack.isEmpty()) {
+            StringWriter writer = new StringWriter();
+            Block block = blockStack.pop();
+            block.getType()
+                    .write(writer, 
+                           bodyResult,
+                           block.getContent());
+            bodyResult = writer.toString();
+        }
+
         Writer out = env.getOut();
-
-        String putContents = getPutContents(env, blockName);
-
-        putType.write(out, bodyResult, putContents);
+        out.write(bodyResult);
     }
 
-    private PutType getPutType(Environment env, String blockName) throws TemplateException {
-        SimpleScalar putTypeScalar = (SimpleScalar) env.getVariable(getBlockTypeVarName(blockName));
-        if (putTypeScalar == null) {
-            return PutType.APPEND;
+    private BlockStack getBlockStack(Environment env, String blockName) throws TemplateModelException {
+        BlockStack blockStack = (BlockStack) env.getVariable(getBlockVarName(blockName));
+        if (blockStack == null) {
+            blockStack = new BlockStack();
         }
-
-        return PutType.valueOf(putTypeScalar.getAsString());
+        return blockStack;
     }
 
-    private String getPutContents(Environment env, String blockName) throws TemplateModelException {
-        SimpleScalar putContentsModel = (SimpleScalar) env.getVariable(getBlockContentsVarName(blockName));
-        String putContents = "";
-        if (putContentsModel != null) {
-            putContents = putContentsModel.getAsString();
-        }
-        return putContents;
-    }
 }

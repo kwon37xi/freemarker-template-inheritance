@@ -1,3 +1,5 @@
+// The original source file has been modified by Matteo Silvestri 
+// <matteosilv@gmail.com> on date 2017-10-26
 subprojects {
     apply plugin: 'java'
 
@@ -9,8 +11,8 @@ subprojects {
     targetCompatibility = javaVersion
     [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
-    group = 'kr.pe.kwonnam.freemarker'
-    version = '0.5-SNAPSHOT'
+    group = 'io.github.matteosilv'
+    version = '0.6'
 
     repositories {
         mavenCentral()

@@ -1,3 +1,5 @@
+// The original source file has been modified by Matteo Silvestri 
+// <matteosilv@gmail.com> on date 2017-10-26
 apply plugin: 'maven'
 apply plugin: 'signing'
 
@@ -48,11 +50,11 @@ if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')
                     name "${project.name}"
                     packaging 'jar'
                     description 'Freemarker template inheritance.'
-                    url 'https://github.com/kwon37xi/freemarker-template-inheritance'
+                    url 'https://github.com/matteosilv/freemarker-template-inheritance'
 
                     scm {
-                        connection 'scm:git:https://github.com/kwon37xi/freemarker-template-inheritance.git'
-                        url 'https://github.com/kwon37xi/freemarker-template-inheritance'
+                        connection 'scm:git:https://github.com/matteosilv/freemarker-template-inheritance.git'
+                        url 'https://github.com/matteosilv/freemarker-template-inheritance'
                     }
 
                     licenses {
@@ -67,6 +69,11 @@ if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')
                             id 'kwon37xi'
                             name 'KwonNam Son'
                             email 'kwon37xi@gmail.com'
+                        }
+                        developer {
+                            id 'matteosilv'
+                            name 'Matteo Silvestri'
+                            email 'matteosilv@gmail.com'
                         }
                     }
                 }

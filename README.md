@@ -12,7 +12,7 @@ From 0.4.RELEASE, you can downlod this library from the maven central repository
 ### Gradle dependencies
 ```groovy
 dependencies {
-    compile 'kr.pe.kwonnam.freemarker:freemarker-template-inheritance:0.4.RELEASE'
+    compile 'io.github.matteosilv:freemarker-template-inheritance:0.6'
 }
 ```
 
@@ -20,9 +20,9 @@ dependencies {
 
 ```xml
 <dependency>
-    <groupId>kr.pe.kwonnam.freemarker</groupId>
+    <groupId>io.github.matteosilv</groupId>
     <artifactId>freemarker-template-inheritance</artifactId>
-    <version>0.4.RELEASE</version>
+    <version>0.6</version>
     <scope>compile</scope>
 </dependency>
 ```

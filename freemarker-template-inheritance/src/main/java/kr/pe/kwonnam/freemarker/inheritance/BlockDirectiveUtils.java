@@ -1,3 +1,7 @@
+/* 
+ * The original source file has been modified by Matteo Silvestri 
+ * <matteosilv@gmail.com> on date 2017-10-26
+ */
 package kr.pe.kwonnam.freemarker.inheritance;
 
 import freemarker.core.Environment;
@@ -25,12 +29,8 @@ public class BlockDirectiveUtils {
         return writer.toString();
     }
 
-    public static String getBlockContentsVarName(String blockName) {
-        return PutDirective.PUT_DATA_PREFIX + blockName + ".contents";
-    }
-
-    public static String getBlockTypeVarName(String blockName) {
-        return PutDirective.PUT_DATA_PREFIX + blockName + ".type";
+    public static String getBlockVarName(String blockName) {
+        return PutDirective.PUT_DATA_PREFIX + blockName;
     }
 
     public static String getBlockName(Environment env, Map params, String paramName) throws TemplateException {
