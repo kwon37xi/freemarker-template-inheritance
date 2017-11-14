@@ -10,15 +10,15 @@ import static org.junit.Assert.assertThat;
  * Date: 13. 6. 30
  * Time: 오후 11:43
  */
-public class ExtendsManyTimesTest extends AbstractDirectiveTest {
+public class ExtendsManyTimesWithBlockTest extends AbstractDirectiveTest {
 
     @Test
-    public void extends_many_times() {
-        String result = processTemplate("extends_many_times.ftl");
+    public void extends_many_times_with_block() {
+        String result = processTemplate("extends_many_times_with_block.ftl");
 
         assertThat("다차 상속", result, is("{[FirstBlock-FirstBlockChild1-FirstAppendBlockChild2]" +
-                "[SecondBlockChildReplace]" +
-                "[ThirdBlockChildPrepend2-ThirdBlock-ThirdBlockChild1]" +
+                "[SecondBlock-SecondBlockChildReplace]" +
+                "[ThirdBlock-ThirdBlockChildPrepend2-ThirdBlockChild1]" +
                 "[FourthBlock-FourthBlockChildAppend2]" +
                 "[FifthBlock-FifthBlockChild1]}"));
     }
